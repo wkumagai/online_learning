@@ -48,6 +48,12 @@ data/market_infomation/processed/*
 !data/market_infomation/processed/README.txt
 data/market_infomation/news/*
 !data/market_infomation/news/README.txt
+data/market_information/raw/*
+!data/market_information/raw/README.txt
+data/market_information/processed/*
+!data/market_information/processed/README.txt
+data/market_information/news/*
+!data/market_information/news/README.txt
 
 # Model files
 data/strategy/models/*
