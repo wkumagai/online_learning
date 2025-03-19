@@ -1,158 +1,65 @@
 # Online Learning Trading System
 
-## Overview
+## 概要
+このプロジェクトは、市場情報の収集、取引戦略の開発、バックテスト評価、実際の取引執行、およびレポート生成を含む総合的なトレーディングシステムです。
 
-This project implements an online learning trading system that continuously adapts to market conditions. The system integrates market data collection, strategy development, backtesting, real-time evaluation, and trading execution within a unified framework.
+## 主要コンポーネント
 
-## Key Features
+### 1. 市場情報 (Market Information)
+- 株式市場データの収集と処理
+- ニュースと経済指標の統合
+- データの品質管理と保存
 
-- **Market Data Collection**: Fetches and processes stock price data and financial news
-- **Strategy Development**: Supports technical, fundamental, and machine learning-based strategies
-- **Backtesting**: Evaluates strategies against historical data with realistic trading conditions
-- **Real-time Evaluation**: Monitors strategy performance in live market conditions
-- **Trading Execution**: Executes trades through broker APIs or paper trading
-- **Reporting & Alerts**: Generates performance reports and sends alerts for significant events
-- **System Management**: Handles configuration, logging, and system health monitoring
+### 2. 戦略 (Strategy)
+- テクニカル分析ベースの戦略
+- 機械学習モデルの開発と訓練
+- 戦略のバックテストと最適化
 
-## Project Structure
+### 3. 評価 (Evaluation)
+- 戦略のパフォーマンス評価
+- リスク分析
+- 戦略比較
 
+### 4. 取引 (Trading)
+- 注文執行
+- ポジション管理
+- リスク管理
+
+### 5. レポート (Report)
+- パフォーマンスレポート生成
+- アラートシステム
+- ダッシュボード
+
+## ディレクトリ構造
 ```
 online_learning/
-├── data/                      # Data storage
-│   ├── market_infomation/     # Market data (raw, processed, news)
-│   ├── strategy/              # Strategy models and logs
-│   ├── evaluation/            # Backtest and real-time evaluation results
-│   ├── trading/               # Order logs and execution records
-│   └── report/                # Generated reports and alerts
-├── src/                       # Source code
-│   ├── market_infomation/     # Market data collection and processing
-│   ├── strategy/              # Strategy development and management
-│   ├── evaluation/            # Backtesting and evaluation
-│   ├── trading/               # Order execution and management
-│   ├── report/                # Reporting and alerting
-│   └── system/                # System configuration and management
-├── tests/                     # Unit and integration tests
-├── docs/                      # Documentation
-├── .env                       # Environment variables (create from .env.example)
-├── .gitignore                 # Git ignore file
-├── requirements.txt           # Python dependencies
-└── README.md                  # This file
+├── data/               # データファイル
+│   ├── market_information/  # 市場データ
+│   ├── strategy/       # 戦略モデルとログ
+│   ├── evaluation/     # 評価結果
+│   ├── trading/        # 取引ログ
+│   └── report/         # 生成されたレポート
+├── src/                # ソースコード
+│   ├── market_information/  # 市場データ収集・処理
+│   ├── strategy/       # 戦略開発
+│   ├── evaluation/     # 評価システム
+│   ├── trading/        # 取引執行
+│   ├── report/         # レポート生成
+│   └── system/         # システム全体の設定
+└── tests/              # テストコード
+    ├── market_information/
+    ├── strategy/
+    ├── evaluation/
+    ├── trading/
+    ├── report/
+    └── system/
 ```
 
-## Setup Instructions
+## 使用方法
+詳細な使用方法は各コンポーネントのドキュメントを参照してください。
 
-### Prerequisites
+## 依存関係
+主な依存関係は`requirements.txt`ファイルに記載されています。
 
-- Python 3.8 or higher
-- pip (Python package manager)
-- Git
-
-### Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/online_learning.git
-   cd online_learning
-   ```
-
-2. Create and activate a virtual environment:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Set up environment variables:
-   ```bash
-   cp .env.example .env
-   # Edit .env with your API keys and configuration
-   ```
-
-5. Create necessary directories:
-   ```bash
-   python -m src.system.setup
-   ```
-
-## Usage
-
-### Market Data Collection
-
-```bash
-# Fetch stock data for specific symbols
-python -m src.market_infomation.market_infomation --symbols AAPL,MSFT,GOOGL --start-date 2023-01-01
-
-# Fetch news data
-python -m src.market_infomation.market_infomation --news --keywords "technology,earnings" --start-date 2023-01-01
-```
-
-### Strategy Development and Backtesting
-
-```bash
-# Create a new strategy
-python -m src.strategy.strategy --create --name momentum_strategy --type technical
-
-# Run backtest
-python -m src.evaluation.evaluation --backtest --strategy momentum_strategy --start-date 2023-01-01 --end-date 2023-06-30
-```
-
-### Trading Execution
-
-```bash
-# Paper trading
-python -m src.trading.trading --mode paper --strategy momentum_strategy
-
-# Live trading (use with caution)
-python -m src.trading.trading --mode live --strategy momentum_strategy
-```
-
-### Reporting
-
-```bash
-# Generate performance report
-python -m src.report.report --type performance --strategy momentum_strategy --format html
-
-# Set up alerts
-python -m src.report.report --configure-alerts --level warning --channel email
-```
-
-## Testing
-
-Run the test suite:
-
-```bash
-pytest
-```
-
-Run specific tests:
-
-```bash
-pytest tests/market_infomation/
-pytest tests/strategy/test_strategy.py
-```
-
-## Documentation
-
-Detailed documentation is available in the `docs/` directory:
-
-- [Market Information](docs/market_infomation.md)
-- [Strategy Development](docs/strategy.md)
-- [Evaluation](docs/evaluation.md)
-- [Trading](docs/trading.md)
-- [Reporting](docs/report.md)
-- [System Management](docs/system.md)
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature-name`
-3. Commit your changes: `git commit -am 'Add feature'`
-4. Push to the branch: `git push origin feature-name`
-5. Submit a pull request
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
+## ライセンス
+このプロジェクトは独自のライセンスの下で提供されています。

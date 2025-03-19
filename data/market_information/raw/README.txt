@@ -1,52 +1,30 @@
-# Raw Market Data Directory
+# 生市場データディレクトリ
 
-This directory contains raw, unprocessed market data files directly obtained from data sources.
+このディレクトリには、APIやデータプロバイダーから取得した未処理の生データが保存されます。
 
-## Contents
+## ファイル形式
+- CSV: 一般的な時系列データ
+- JSON: API応答データ
+- XLSX/XLS: エクセルデータ
+- TXT: テキスト形式のデータ
 
-- Historical stock price data (CSV format)
-- Tick data (if applicable)
-- Market indices data
-- Exchange rate data (if applicable)
+## 命名規則
+source_market_symbol_timeframe_YYYYMMDD.extension
 
-## File Naming Convention
+例：
+- yahoo_nasdaq_AAPL_daily_20200101.csv
+- alphavantage_jpy_7203_hourly_20210101.json
+- jpx_tosho_list_20220101.xlsx
+- nasdaq_listed_20230101.txt
 
-Files are named according to the following patterns:
+## データソース
+- Yahoo Finance
+- Alpha Vantage
+- Japan Exchange Group (JPX)
+- NASDAQ
+- その他のデータプロバイダー
 
-1. For stock price data:
-   - {SYMBOL}_{EXCHANGE}.csv (e.g., AAPL_NASDAQ.csv, 7203_T.csv)
-   - Historical data files may include date ranges: {SYMBOL}_{EXCHANGE}_{START_DATE}_{END_DATE}.csv
-
-2. For market indices:
-   - {INDEX_NAME}_{EXCHANGE}.csv (e.g., NIKKEI225_T.csv, SP500_NYSE.csv)
-
-3. For tick data:
-   - {SYMBOL}_{EXCHANGE}_{DATE}_tick.csv
-
-## Data Format
-
-### Stock Price CSV Format
-Typical columns include:
-- date: Trading date (YYYY-MM-DD)
-- open: Opening price
-- high: Highest price during the period
-- low: Lowest price during the period
-- close: Closing price
-- volume: Trading volume
-- adj_close: Adjusted closing price (if available)
-
-### Tick Data Format (if applicable)
-- timestamp: Precise time of the trade (YYYY-MM-DD HH:MM:SS.mmm)
-- price: Trade price
-- volume: Trade volume
-- bid: Best bid price
-- ask: Best ask price
-- bid_size: Bid size
-- ask_size: Ask size
-
-## Notes
-
-- Raw data should never be modified after initial download
-- Data validation and cleaning should be performed in the processing stage
-- Large files may be compressed (.gz or .zip format)
-- This directory may contain a large amount of data and should be backed up regularly
+## 注意事項
+- このディレクトリのデータは未処理であり、欠損値や異常値が含まれている可能性があります
+- 処理前のデータの整合性を確認してください
+- 大規模なデータファイルはGitで追跡されない場合があります（.gitignoreを確認）

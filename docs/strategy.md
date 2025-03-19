@@ -1,216 +1,148 @@
-# 売買戦略全般の説明書
+# 戦略モジュール
 
-## 1. 戦略の基本概念
+## 概要
+戦略モジュールは、市場データを分析し、取引シグナルを生成するための様々なアルゴリズムとモデルを提供します。テクニカル分析から機械学習まで、多様な戦略アプローチをサポートしています。
 
-投資戦略とは、市場データを分析し、いつ・何を・どれだけ売買するかを決定するための体系的なアプローチです。優れた戦略は以下の要素を備えています：
+## 主要コンポーネント
 
-- **客観性**: 感情に左右されない明確なルールに基づいている
-- **一貫性**: 市場環境に関わらず同じ方法で実行できる
-- **検証可能性**: 過去のデータで検証できる
-- **適応性**: 市場環境の変化に対応できる
+### 1. 基本戦略フレームワーク
+- **基底クラス**: すべての戦略の共通インターフェース
+- **イベント処理**: 市場データイベントの処理メカニズム
+- **シグナル生成**: 買い/売りシグナルの標準化された生成
+- **パラメータ管理**: 戦略パラメータの最適化と管理
 
-### リスク管理の重要性
+### 2. テクニカル分析戦略
+- **移動平均戦略**: SMA、EMA、WMAベースの戦略
+- **オシレーター戦略**: RSI、ストキャスティクス、MACDベースの戦略
+- **ボラティリティ戦略**: ボリンジャーバンド、ATRベースの戦略
+- **パターン認識**: チャートパターンに基づく戦略
 
-戦略を実装する際は、以下のリスク管理原則を考慮することが不可欠です：
+### 3. 機械学習戦略
+- **回帰モデル**: 価格予測のための線形/非線形回帰
+- **分類モデル**: 方向性予測のための分類アルゴリズム
+- **時系列モデル**: ARIMA、GARCH、LSTMなどの時系列予測
+- **強化学習**: Q学習、Deep Q-Network、Actor-Criticモデル
 
-- **ポジションサイズ**: 1回のトレードで資金の1-2%以上をリスクにさらさない
-- **分散投資**: 複数の銘柄や資産クラスに分散する
-- **相関関係**: 選択した銘柄間の相関関係を考慮する
-- **最大ドローダウン**: 許容できる最大損失額を事前に決定する
-- **リスク/リワード比**: 最低でも1:2以上のリスク/リワード比を目指す
+### 4. ハイブリッド戦略
+- **テクニカル+機械学習**: テクニカル指標を特徴量とした機械学習
+- **アンサンブル手法**: 複数戦略の組み合わせと加重
+- **適応型戦略**: 市場状況に応じて戦略を切り替える
 
-### 戦略実装時の注意点
+### 5. バックテストと最適化
+- **パラメータ最適化**: グリッドサーチ、ベイズ最適化
+- **ウォークフォワード検証**: 時間依存バイアスの軽減
+- **モンテカルロシミュレーション**: 確率的パフォーマンス評価
 
-- **過剰最適化**: 過去のデータに過度に適合させると将来のパフォーマンスが低下する
-- **取引コスト**: 手数料やスプレッドを考慮しないと実際の収益性が大きく変わる
-- **流動性リスク**: 流動性の低い銘柄では大きなスリッページが発生する可能性がある
-- **システムリスク**: 技術的な障害や接続問題に備えたバックアッププランが必要
-- **心理的要因**: 戦略を機械的に実行する規律が必要
+## 使用方法
 
-## 2. 株価・ニュースからシグナル生成までの流れ
-
-### 基本的なデータフロー
-
-```
-市場データ取得 → データ前処理 → 特徴量生成 → シグナル生成 → 取引実行
-```
-
-### 詳細なプロセス
-
-1. **市場データ取得**
-   - 株価データ（OHLCV）の取得
-   - ニュースデータの取得
-   - 企業の財務データの取得（必要に応じて）
-
-2. **データ前処理**
-   - 欠損値の処理
-   - 異常値の検出と処理
-   - データの正規化/標準化
-   - 時系列データの整列
-
-3. **特徴量生成**
-   - テクニカル指標の計算（移動平均、RSI、MACDなど）
-   - ニュースのセンチメント分析
-   - ボラティリティ指標の計算
-   - 相対的な指標（セクター平均との比較など）
-
-4. **シグナル生成**
-   - ルールベースの条件判定
-   - 機械学習モデルによる予測
-   - 複数指標の組み合わせ
-   - シグナルのフィルタリング
-
-5. **取引実行**
-   - ポジションサイズの決定
-   - 注文タイプの選択
-   - 執行タイミングの最適化
-   - リスク管理ルールの適用
-
-## 3. モデルを用いた株価予測とシグナル生成
-
-### 主な予測モデル
-
-1. **統計モデル**
-   - 自己回帰和分移動平均（ARIMA）
-   - 一般化自己回帰条件付き分散不均一（GARCH）
-   - 状態空間モデル
-
-2. **機械学習モデル**
-   - ランダムフォレスト
-   - 勾配ブースティング（XGBoost, LightGBM）
-   - サポートベクターマシン（SVM）
-
-3. **ディープラーニングモデル**
-   - 長短期記憶（LSTM）ネットワーク
-   - 畳み込みニューラルネットワーク（CNN）
-   - Transformer（注意機構）
-
-### 予測からシグナルへの変換
-
-1. **閾値ベース**
-   - 予測値が特定の閾値を超えた場合にシグナル生成
-   - 例: 上昇確率が70%以上なら買いシグナル
-
-2. **確率ベース**
-   - 予測の確信度に基づいてポジションサイズを調整
-   - 例: 上昇確率が90%なら最大ポジション、70%なら半分のポジションサイズ
-
-3. **相対ランキング**
-   - 複数銘柄の予測値をランキングし、上位N銘柄を選択
-   - 例: 予測リターンが最も高い10銘柄に均等配分
-
-4. **アンサンブル手法**
-   - 複数モデルの予測を組み合わせてロバスト性を向上
-   - 例: 3つのモデルのうち2つ以上が買いシグナルを出した場合のみ実行
-
-### 実装例: LSTMモデルによる予測とシグナル生成
-
+### 基本的な使用例
 ```python
-def generate_signals_from_predictions(predictions, threshold=0.55):
-    """
-    予測値からトレーディングシグナルを生成
-    
-    Parameters:
-    -----------
-    predictions : numpy.ndarray
-        上昇確率の予測値（0-1の範囲）
-    threshold : float
-        シグナル生成の閾値
-        
-    Returns:
-    --------
-    pandas.Series
-        トレーディングシグナル（1: 買い, 0: 中立, -1: 売り）
-    """
-    signals = np.zeros(len(predictions))
-    signals[predictions > threshold] = 1  # 買いシグナル
-    signals[predictions < (1 - threshold)] = -1  # 売りシグナル
-    return pd.Series(signals)
+from src.strategy import strategy
+from src.strategy.models.Technical import moving_average
+
+# 移動平均クロスオーバー戦略を作成
+ma_strategy = moving_average.MovingAverageCrossover(
+    fast_period=10,
+    slow_period=30,
+    price_column='close'
+)
+
+# 戦略を初期化
+ma_strategy.initialize(data)
+
+# シグナルを生成
+signals = ma_strategy.generate_signals()
+
+# 戦略のパフォーマンスを評価
+performance = strategy.evaluate_strategy(
+    strategy=ma_strategy,
+    data=data,
+    initial_capital=1000000,
+    commission=0.001
+)
 ```
 
-## 4. safe-ruleの取り扱い
-
-safe-ruleとは、極端な市場状況や異常な価格変動から資産を守るための緊急対応ルールです。通常の戦略ロジックよりも優先して適用されます。
-
-### 主なsafe-rule
-
-1. **暴落対応ルール**
-   - 短期間で一定以上の下落が発生した場合、全ポジションを清算
-   - 例: 1日で5%以上、または3日連続で合計8%以上の下落
-
-2. **急騰対応ルール**
-   - 短期間で異常な上昇が発生した場合、利益確定または新規買い控え
-   - 例: 1日で10%以上の上昇後は新規買いを行わない
-
-3. **ボラティリティ制限**
-   - 市場のボラティリティが異常に高い場合、ポジションサイズを縮小
-   - 例: VIX指数が30を超えた場合、通常の半分のポジションサイズに制限
-
-4. **ニュースフィルター**
-   - 重要な経済指標発表や企業イベント前後は取引を控える
-   - 例: 決算発表の前後2日間は当該銘柄の新規取引を行わない
-
-5. **流動性チェック**
-   - 取引量が通常より著しく少ない場合、取引を控える
-   - 例: 過去20日平均の50%未満の出来高の場合は取引しない
-
-### safe-ruleの実装例
-
+### 機械学習戦略の例
 ```python
-def apply_safe_rules(signals, price_data, volatility_index, news_events):
-    """
-    safe-ruleを適用してシグナルを調整
-    
-    Parameters:
-    -----------
-    signals : pandas.Series
-        元のトレーディングシグナル
-    price_data : pandas.DataFrame
-        価格データ
-    volatility_index : pandas.Series
-        ボラティリティ指標（VIXなど）
-    news_events : list
-        重要イベントの日付リスト
-        
-    Returns:
-    --------
-    pandas.Series
-        調整後のトレーディングシグナル
-    """
-    adjusted_signals = signals.copy()
-    
-    # 暴落チェック（1日で5%以上の下落）
-    daily_returns = price_data['Close'].pct_change()
-    crash_days = daily_returns < -0.05
-    adjusted_signals[crash_days] = -1  # 売りシグナルに変更
-    
-    # 急騰チェック（1日で10%以上の上昇）
-    spike_days = daily_returns > 0.10
-    adjusted_signals[spike_days] = 0  # 中立シグナルに変更
-    
-    # ボラティリティチェック
-    high_vol_days = volatility_index > 30
-    adjusted_signals[high_vol_days] = adjusted_signals[high_vol_days] * 0.5  # シグナル強度を半減
-    
-    # ニュースイベントチェック
-    for event_date in news_events:
-        # イベント前後2日間は取引を控える
-        event_window = pd.date_range(
-            start=event_date - pd.Timedelta(days=2),
-            end=event_date + pd.Timedelta(days=2)
-        )
-        adjusted_signals[adjusted_signals.index.isin(event_window)] = 0
-    
-    return adjusted_signals
+from src.strategy.models.ML import deep_learning
+
+# 特徴量を定義
+features = [
+    'sma_10', 'sma_30', 'rsi_14', 'macd', 'volume', 
+    'day_of_week', 'month', 'volatility'
+]
+
+# LSTM戦略を作成
+lstm_strategy = deep_learning.LSTMStrategy(
+    features=features,
+    target='return_next_day',
+    lookback_period=20,
+    hidden_units=64,
+    dropout=0.2
+)
+
+# モデルを訓練
+lstm_strategy.train(
+    train_data=train_data,
+    validation_data=validation_data,
+    epochs=100,
+    batch_size=32
+)
+
+# シグナルを生成
+signals = lstm_strategy.generate_signals(test_data)
 ```
 
-### 他戦略との優先関係
+### 戦略の最適化
+```python
+from src.strategy import optimizer
 
-safe-ruleは通常、以下の優先順位で適用されます：
+# 最適化パラメータを定義
+params_space = {
+    'fast_period': range(5, 21),
+    'slow_period': range(20, 101, 5),
+    'signal_period': range(5, 16)
+}
 
-1. **システム安全性ルール**: API障害検出、データ異常検出など
-2. **市場安全性ルール**: 暴落対応、ボラティリティ制限など
-3. **リスク管理ルール**: 最大ポジションサイズ、最大損失制限など
-4. **通常の戦略ロジック**: テクニカル分析、機械学習予測など
+# 最適化を実行
+best_params = optimizer.grid_search(
+    strategy_class=moving_average.MACD,
+    params_space=params_space,
+    data=data,
+    metric='sharpe_ratio',
+    cv=5  # 5分割クロスバリデーション
+)
 
-この優先順位により、異常な市場状況下でも資産を保護しながら、通常時は戦略に従った取引を行うことができます。
+# 最適化された戦略を作成
+optimized_strategy = moving_average.MACD(**best_params)
+```
+
+## 戦略開発ガイドライン
+
+### 新しい戦略の追加
+1. 適切なカテゴリ（Technical、ML、Hybrid）を選択
+2. 基底クラス（BaseStrategy）を継承
+3. 必要なメソッドをオーバーライド（initialize、generate_signals、update）
+4. ユニットテストを作成
+5. バックテストで戦略を検証
+
+### パフォーマンス最適化
+- 計算集約的な処理はNumPyベクトル化操作を使用
+- 大規模データセットにはメモリマッピングを検討
+- 並列処理を活用（特に最適化とシミュレーション）
+- キャッシュを適切に使用
+
+## 依存関係
+- pandas
+- numpy
+- scikit-learn
+- tensorflow/keras
+- pytorch (オプション)
+- ta-lib (テクニカル指標)
+
+## 将来の拡張
+- マルチアセット戦略
+- 市場間アービトラージ
+- センチメント分析統合
+- 遺伝的アルゴリズムによる戦略進化
+- 説明可能なAIアプローチ
