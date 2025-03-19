@@ -1,18 +1,4 @@
-# macOS
-.DS_Store
-.AppleDouble
-.LSOverride
-Icon
-._*
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
-.com.apple.timemachine.donotpresent
-
-# Python
+# Python bytecode
 __pycache__/
 *.py[cod]
 *$py.class
@@ -34,17 +20,105 @@ wheels/
 .installed.cfg
 *.egg
 
-# Environment
-.env
-.venv
-env/
+# Virtual Environment
 venv/
+env/
 ENV/
-env.bak/
-venv.bak/
 
-# IDE
+# Environment variables and secrets
+.env
+*.env
+secrets/
+
+# IDE files
 .idea/
 .vscode/
 *.swp
 *.swo
+.DS_Store
+
+# Logs
+logs/
+*.log
+
+# Data files
+data/market_information/raw/*
+!data/market_information/raw/README.txt
+data/market_information/processed/*
+!data/market_information/processed/README.txt
+data/market_information/news/*
+!data/market_information/news/README.txt
+
+# Model files
+data/strategy/models/*
+!data/strategy/models/README.txt
+*.pkl
+*.h5
+*.joblib
+*.model
+
+# Logs and results
+data/strategy/logs/*
+!data/strategy/logs/README.txt
+data/evaluation/backtest_results/*
+!data/evaluation/backtest_results/README.txt
+data/evaluation/realtime_results/*
+!data/evaluation/realtime_results/README.txt
+data/trading/order_logs/*
+!data/trading/order_logs/README.txt
+data/report/generated_reports/*
+!data/report/generated_reports/README.txt
+data/report/alerts/*
+!data/report/alerts/README.txt
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# Documentation
+docs/_build/
+docs/_static/
+docs/_templates/
+
+# Distribution / packaging
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Temporary files
+*.bak
+*.tmp
+*.temp
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
