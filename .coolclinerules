@@ -1,22 +1,57 @@
+# CoolCline Rules for Online Learning Trading System
+
+## Command Execution Confirmation
 #コマンドの実行結果の確認
 - コマンドを実行したら，実行結果（Output:）をあなたが確認してください
 
+## File Access Optimization
 # ファイル読み込みの最小化
 - 不要なファイルのオープンは避け、対象ファイルの検索はコマンド実行で行うこと。ファイル読み込みは高コストです。
 
+## Instruction Scope Adherence
 # 指示範囲の厳守
 - 質問されたらその回答のみを行い，勝手にファイルの修正や作成を行わないこと．質問後の修正には許可を求めること．
 - 指示された作業（例：ファイル修正、機能追加）のみ実施すること。
 - 指示外の作業（例：Readme修正、サンプルコード作成、ドキュメント生成）は行わず、作業が必要そうならその旨をまずのべ許可を求めること．
 
+## Yes/No Question Responses
 # Yes/No疑問文への回答
 - 「はい」か「いいえ」で回答できる質問は，最初に「はい」か「いいえ」か「わからない」を明示してください．
 
+## Code Creation Guidelines
 # コード作成
 - コードを書くときはこまめにコメントとしてわかりやすい説明をいれて
 - コード内には日本語を記入せず，すべて英語にして
 - コードを作成するときは，適切なフォルダに格納するか，適切な名前を持つフォルダを作成してそこに格納して．time-series直下にファイルを増やさないで．
 
+## Project-Specific Patterns
+
+### Module Organization
+- Each functional area has its own module in the src directory
+- Modules follow a consistent structure with __init__.py files
+- Common utilities are placed in the system module
+
+### File Naming Conventions
+- Use snake_case for file and directory names
+- Module-specific scripts go in a scripts subdirectory
+- Test files are prefixed with test_
+
+### Git Workflow
+- Main branch contains the stable, complete codebase
+- Feature branches (like ex-collect) are used for specific development tasks
+- Changes should be synchronized between branches as needed
+
+### Documentation Standards
+- Each module has its own documentation in the docs directory
+- Code should include docstrings for functions and classes
+- README files are used to provide context in data directories
+
+## Memory Bank Management
+- Update the Memory Bank when significant changes are made
+- Keep activeContext.md and progress.md current with the latest status
+- Review all Memory Bank files when requested with "update memory bank"
+
+## Web Search and Information Extraction
 # Web検索と情報抽出
 - URL検索: `python tool/url_extractor.py <URL> "<抽出プロンプト>"`
 - キーワード検索: `python tool/brave_search_api.py "<検索キーワード>"`
