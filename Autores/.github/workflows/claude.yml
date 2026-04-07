@@ -1,0 +1,60 @@
+name: Claude-n8n CI
+
+on:
+  issue_comment:
+  pull_request_review_comment:
+  push:
+    paths: ["workflows/**/*.json"]   # n8n 用 JSON が変更されたら自動テスト
+
+jobs:
+  claude-n8n:
+    runs-on: ubuntu-latest
+
+    env:                     # n8n 認証情報を環境変数化
+      N8N_BASE_URL: ${{ secrets.N8N_BASE_URL }}
+      N8N_API_KEY:  ${{ secrets.N8N_API_KEY }}
+
+    steps:
+      # ソース取得
+      - uses: actions/checkout@v4
+
+      # Claude に「ワークフロー生成・修正」を依頼
+      - uses: anthropics/claude-code-action@beta
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          github_token:      ${{ secrets.GITHUB_TOKEN }}
+
+          # --- 追加カスタム ---
+          system_prompt: |
+            あなたは n8n のエキスパートです。
+            /workflows ディレクトリにある JSON は n8n Public API の
+            `POST /workflows` でインポート可能な形式である必要があります。
+            CI が fail したら修正パッチを提案してください。
+
+          # Claude が実行してよいツールを明示
+          allowed_tools: |
+            Bash(curl)          # n8n API 呼び出し
+            Bash(jq)            # JSON 整形
+            Bash(npm run test)  # 独自テスト
+            Edit,Replace        # ファイル修正
+            GitCommit           # 変更をコミット
+        #----------------------
+
+      # 自動テスト: n8n API に実際にインポートして有効化 → 動作確認
+      - name: Import & activate workflow on n8n
+        run: |
+          set -e
+          FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }} | grep '^workflows/.*\.json' || true)
+          for f in $FILES; do
+            echo "Uploading $f to n8n..."
+            WF_ID=$(curl -s -X POST "$N8N_BASE_URL/rest/workflows" \
+              -H "X-N8N-API-KEY: $N8N_API_KEY" \
+              -H 'Content-Type: application/json' \
+              --data @"$f" | jq -r '.id')
+
+            # 任意：成功応答を期待するテスト呼び出し
+            curl -sf "$N8N_BASE_URL/webhook-test/$WF_ID" > /dev/null
+            echo "✅ $f uploaded & ping OK (id=$WF_ID)"
+          done
+
+
