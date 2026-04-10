@@ -181,6 +181,25 @@ a:hover {
   transition: background var(--transition-normal), color var(--transition-normal);
 }
 
+/* AIXS nav button - pill style */
+.site-nav a[href="aixs.html"] {
+  background: var(--color-accent);
+  color: #fff;
+  border-radius: var(--radius-full);
+  padding: 8px 24px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+}
+
+.site-nav a[href="aixs.html"]:hover {
+  background: var(--color-accent-hover);
+  color: #fff;
+  box-shadow: var(--shadow);
+  transform: translateY(-1px);
+}
+
 .site-nav a:hover,
 .site-nav a.active {
   background: var(--color-accent-light);
