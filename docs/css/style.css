@@ -984,23 +984,25 @@ a:hover {
   padding: 96px 0;
 }
 
-/* Feature list — vertical layout */
+/* Feature list — vertical stacked cards */
 .aixs-features-list {
-  max-width: 720px;
+  max-width: 800px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: var(--space-16);
+  gap: var(--space-8);
 }
 
 .aixs-feature-item {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding-bottom: var(--space-16);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-12);
+  transition: border-color var(--transition-normal);
 }
 
-.aixs-feature-item:last-child {
-  border-bottom: none;
-  padding-bottom: 0;
+.aixs-feature-item:hover {
+  border-color: rgba(255, 255, 255, 0.18);
 }
 
 .aixs-feature-item__title {
