@@ -614,8 +614,11 @@ a:hover {
   width: 160px;
   height: 160px;
   min-width: 160px;
+  aspect-ratio: 1;
+  flex-shrink: 0;
   border-radius: 50%;
   object-fit: cover;
+  object-position: center top;
   box-shadow: 0 0 0 3px var(--color-accent-light);
 }
 
@@ -706,7 +709,6 @@ a:hover {
   color: var(--color-text);
   background: var(--color-surface);
   white-space: nowrap;
-  border-left: 3px solid var(--color-accent);
 }
 
 .company-table td {
