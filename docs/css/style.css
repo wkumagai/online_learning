@@ -373,6 +373,7 @@ a:hover {
   line-height: 1.2;
   margin-bottom: 32px;
   letter-spacing: -0.01em;
+  color: var(--color-accent);
 }
 
 .hero__scroll {
