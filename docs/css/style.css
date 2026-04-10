@@ -620,20 +620,22 @@ a:hover {
 
 /* Members */
 .members-list {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
   margin-top: 40px;
 }
 
 .member-card {
   display: flex;
-  align-items: flex-start;
-  gap: 36px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
-  padding: 36px;
+  padding: 32px 24px;
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-normal);
 }
@@ -643,9 +645,8 @@ a:hover {
 }
 
 .member-card__photo {
-  width: 160px;
-  height: 160px;
-  min-width: 160px;
+  width: 120px;
+  height: 120px;
   aspect-ratio: 1;
   flex-shrink: 0;
   border-radius: 50%;
@@ -655,6 +656,7 @@ a:hover {
 
 .member-card__info {
   flex: 1;
+  text-align: center;
 }
 
 .member-card__name-ja {
@@ -924,6 +926,10 @@ a:hover {
    =================================================== */
 
 @media (max-width: 1024px) {
+  .members-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .service-block--reverse .service-block__image {
     order: unset;
   }
@@ -997,16 +1003,8 @@ a:hover {
     width: 120px;
   }
 
-  .member-card {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 28px 24px;
-    border-left: 1px solid var(--color-border);
-  }
-
-  .member-card__photo {
-    margin-bottom: 16px;
+  .members-list {
+    grid-template-columns: 1fr;
   }
 
   .service-block {
