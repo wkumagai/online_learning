@@ -140,9 +140,7 @@ a:hover {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255,255,255,0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: var(--color-bg);
   border-bottom: 1px solid var(--color-border);
   height: var(--header-height);
   display: flex;
@@ -928,9 +926,6 @@ a:hover {
     padding: 64px 0;
   }
 
-  .site-header {
-    background: rgba(255,255,255,0.95);
-  }
 
   .site-nav {
     display: none;
