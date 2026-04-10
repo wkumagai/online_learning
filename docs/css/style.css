@@ -481,50 +481,42 @@ a:hover {
 }
 
 /* Members */
-.members-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+.members-list {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
   margin-top: 40px;
 }
 
 .member-card {
-  text-align: center;
+  display: flex;
+  align-items: flex-start;
+  gap: 32px;
 }
 
 .member-card__photo {
-  width: 160px;
-  height: 160px;
+  width: 140px;
+  height: 140px;
+  min-width: 140px;
   border-radius: 50%;
-  margin: 0 auto 16px;
   object-fit: cover;
 }
 
-.member-card__placeholder {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  margin: 0 auto 16px;
-  background: var(--color-accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  font-weight: 700;
-  color: #fff;
+.member-card__info {
+  flex: 1;
 }
 
 .member-card__name-ja {
-  font-size: 1rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--color-text);
   margin-bottom: 2px;
 }
 
 .member-card__name-en {
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   color: var(--color-text-muted);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 
 .member-card__role {
@@ -536,6 +528,27 @@ a:hover {
   padding: 4px 12px;
   border-radius: 20px;
   letter-spacing: 0.03em;
+  margin-bottom: 12px;
+}
+
+.member-card__bio {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  line-height: 1.8;
+  margin-bottom: 8px;
+}
+
+.member-card__sns {
+  font-size: 0.82rem;
+}
+
+.member-card__sns a {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+.member-card__sns a:hover {
+  color: var(--color-accent-hover);
 }
 
 /* Company overview table */
@@ -729,10 +742,6 @@ a:hover {
     gap: 40px;
   }
 
-  .members-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
   .service-block {
     grid-template-columns: 1fr;
     gap: 40px;
@@ -799,16 +808,22 @@ a:hover {
     width: 120px;
   }
 
+  .member-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .member-card__photo {
+    margin-bottom: 16px;
+  }
+
   .service-block {
     padding: 48px 0;
   }
 }
 
 @media (max-width: 560px) {
-  .members-grid {
-    grid-template-columns: 1fr;
-  }
-
   .hero__title {
     font-size: 2rem;
   }
