@@ -841,16 +841,6 @@ a:hover {
   overflow: hidden;
 }
 
-.contact-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--color-accent), #0a2a5e);
-}
-
 .contact-card__email {
   display: inline-flex;
   align-items: center;
