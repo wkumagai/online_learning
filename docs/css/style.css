@@ -1005,6 +1005,15 @@ a:hover {
   border-color: rgba(255, 255, 255, 0.18);
 }
 
+.aixs-feature-item__num {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-2);
+}
+
 .aixs-feature-item__title {
   font-size: clamp(1.2rem, 2.5vw, 1.5rem);
   font-weight: 700;
