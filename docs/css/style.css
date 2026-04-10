@@ -382,10 +382,8 @@ a:hover {
 
 /* Company Section */
 .company-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: start;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .company-section__images {
@@ -539,10 +537,8 @@ a:hover {
 
 /* Mission */
 .mission-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: start;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .mission-layout__image img {
@@ -722,10 +718,8 @@ a:hover {
    =================================================== */
 
 .service-block {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
-  align-items: start;
+  max-width: 800px;
+  margin: 0 auto;
   padding: 80px 0;
   border-bottom: 1px solid var(--color-border);
 }
@@ -891,21 +885,6 @@ a:hover {
    =================================================== */
 
 @media (max-width: 1024px) {
-  .company-section {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .mission-layout {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
-  .service-block {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-
   .service-block--reverse .service-block__image {
     order: unset;
   }
