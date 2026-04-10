@@ -193,7 +193,8 @@ a:hover {
   transition: all var(--transition-normal);
 }
 
-.site-nav a[href="aixs.html"]:hover {
+.site-nav a[href="aixs.html"]:hover,
+.site-nav a[href="aixs.html"].active {
   background: var(--color-accent-hover);
   color: #fff;
   box-shadow: var(--shadow);
