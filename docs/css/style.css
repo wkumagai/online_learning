@@ -108,6 +108,7 @@ a:hover {
   text-transform: uppercase;
   color: var(--color-accent);
   margin-bottom: 12px;
+  text-align: center;
 }
 
 .section__heading {
