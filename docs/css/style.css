@@ -117,6 +117,7 @@ a:hover {
   line-height: 1.3;
   margin-bottom: 24px;
   letter-spacing: 0.01em;
+  text-align: center;
 }
 
 .section__subheading {
@@ -125,13 +126,16 @@ a:hover {
   color: var(--color-text);
   margin-bottom: 16px;
   line-height: 1.5;
+  text-align: center;
 }
 
 .section__body {
   font-size: 1rem;
   color: var(--color-text-muted);
-  max-width: 720px;
+  max-width: 800px;
   line-height: 1.9;
+  margin-left: auto;
+  margin-right: auto;
   margin-bottom: 16px;
 }
 
@@ -402,6 +406,9 @@ a:hover {
   padding: 20px 24px;
   border-left: 4px solid var(--color-accent);
   background: var(--color-accent-light);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
   border-radius: 0 var(--radius) var(--radius) 0;
   font-weight: 700;
   font-size: 1rem;
@@ -546,7 +553,8 @@ a:hover {
 /* Motivation list */
 .motivation-list {
   list-style: none;
-  margin: 16px 0 20px;
+  max-width: 800px;
+  margin: 16px auto 20px;
 }
 
 .motivation-list li {
@@ -738,7 +746,8 @@ a:hover {
 
 .service-list {
   list-style: none;
-  margin: 16px 0;
+  max-width: 800px;
+  margin: 16px auto;
 }
 
 .service-list li {
