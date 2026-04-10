@@ -355,7 +355,7 @@ a:hover {
   width: 50vw;
   max-width: 500px;
   height: auto;
-  opacity: 0.12;
+  opacity: 0.08;
   filter: brightness(0) saturate(100%) invert(27%) sepia(60%) saturate(2000%) hue-rotate(350deg);
   pointer-events: none;
   user-select: none;
