@@ -189,7 +189,8 @@ a:hover {
   padding: 8px 24px;
   font-weight: 600;
   letter-spacing: 0.05em;
-  box-shadow: var(--shadow-sm);
+  border: 2px solid #fff;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
   transition: all var(--transition-normal);
 }
 
@@ -197,8 +198,8 @@ a:hover {
 .site-nav a[href="aixs.html"].active {
   background: var(--color-accent-hover);
   color: #fff;
-  box-shadow: var(--shadow);
-  transform: translateY(-1px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+  transform: translateY(-2px);
 }
 
 .site-nav a:hover,
