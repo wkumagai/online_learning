@@ -3,300 +3,244 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="NexaScience株式会社 - AIで科学技術を革新する。AIロボット科学者の会社。" />
-  <title>NexaScience | AIで科学技術を革新する</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <title>NexaScience — AIで科学技術を革新する</title>
+  <meta name="description" content="株式会社NexaScience。AIロボット科学者によって科学技術を革新し、人間の創造性を最大限に発揮できる社会を実現します。" />
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
 
-  <!-- ===== HEADER / NAVIGATION ===== -->
-  <header class="site-header" id="site-header">
-    <div class="header-inner container">
-      <a href="#top" class="logo" aria-label="NexaScience トップへ">
-        <span class="logo-nexa">Nexa</span><span class="logo-science">Science</span>
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="container">
+      <a class="site-header__logo" href="index.html" aria-label="NexaScience ホーム">
+        <img
+          src="https://lh3.googleusercontent.com/sitesv/APaQ0SS4G4XESXGEUJ8WmSUxbtdGHXv7cOT-PJ0a3FeU5QO661Ox1OyKHJ-u2VXcpeQJuhIV-g2mM9mKbfKmPxBK653N-bZ8dwjnT4XYJg1DqMBns3gpBdWiH1aZaTUATSoey_8Uks6k_lygIrto0EhwDLJrHZeIkrkdb7YuqIVo5yUVsM2ENR7IEnck=w16383"
+          alt="NexaScience"
+        />
       </a>
-      <button class="nav-toggle" id="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+      <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
-      <nav class="site-nav" id="site-nav" aria-label="メインナビゲーション">
-        <ul>
-          <li><a href="#top">TOP</a></li>
-          <li><a href="#about">ABOUT US</a></li>
-          <li><a href="#service">SERVICE</a></li>
-          <li><a href="#contact">CONTACT</a></li>
+      <nav aria-label="メインナビゲーション">
+        <ul class="site-nav">
+          <li><a href="index.html">TOP</a></li>
+          <li><a href="about.html">ABOUT US</a></li>
+          <li><a href="service.html">SERVICE</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- ===== HERO SECTION ===== -->
-  <section class="hero" id="top" aria-label="ヒーローセクション">
-    <div class="hero-bg" aria-hidden="true">
-      <div class="hero-particles" id="hero-particles"></div>
-    </div>
-    <div class="hero-content container">
-      <p class="hero-eyebrow">株式会社 NexaScience</p>
-      <h1 class="hero-headline">
-        <span class="hero-headline-ja">AIで科学技術を革新する</span>
-      </h1>
-      <p class="hero-subtitle">Revolutionizing science and technology with AI</p>
-    </div>
-    <div class="hero-scroll-indicator" aria-hidden="true">
-      <span class="scroll-line"></span>
-      <span class="scroll-text">SCROLL</span>
-    </div>
-  </section>
+  <main>
 
-  <!-- ===== ABOUT / COMPANY DESCRIPTION ===== -->
-  <section class="about section-padding" id="about" aria-label="会社概要">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-text">
-          <p class="section-label">ABOUT US</p>
-          <h2 class="section-heading">
-            「AIロボット科学者」の会社
-          </h2>
-          <p class="about-body">
-            NexaScienceは「AIロボット科学者」の会社です。AIが自律的に研究を行い、
-            アイデアを生成し、実験を繰り返すことで、人間の研究者の創造性と生産性を
-            最大化します。2050年には、AIが人類の重要課題を自律的に解決する未来を
-            目指します。
-          </p>
-          <div class="mission-block">
-            <p class="mission-text">
-              株式会社NexaScienceは<br />
-              「人間の創造性を最大限に発揮できる社会」を実現します。
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="top">
+      <img
+        class="hero__bg"
+        src="https://lh3.googleusercontent.com/sitesv/APaQ0SQUOfBZcRx9GAxhe8B0mnPMpNxwewZfKtulSQIChG26_ae3a5NmAir0Fpyykvli91ZfbRSN4dmNnW4_KMZD9X-LXZrvdxEYFAybQiZxVRh0V6fcOJJp7Uvp91HjZHNop99R7GJX9QLtuM99frCLkKB9Hhe0ioX4NY3Vu3-PIohzbRHfoXf-UlPd934=w1280"
+        alt=""
+        aria-hidden="true"
+      />
+      <div class="container">
+        <div class="hero__content">
+          <h1 class="hero__title">AIで科学技術を<br>革新する</h1>
+          <a class="hero__scroll" href="#company">スクロール</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== COMPANY SECTION ===== -->
+    <section class="section" id="company">
+      <div class="container">
+        <div class="company-section">
+          <div class="company-section__text reveal">
+            <p class="section__label">Company</p>
+            <h2 class="section__heading">「AIロボット科学者」の会社</h2>
+            <p class="section__body">
+              国家の研究開発プロジェクトをきっかけとして、産学合同チームで開発してきた「AIロボット科学者」。人間の様に状況を理解し、新たなアイディアを考え、そしてそれを実験として検証する―2050年にはそんな「AIロボット科学者」が、皆さんの業務を代行し、社会に貢献している未来を目指しています。
             </p>
+            <p class="section__body">
+              「AIロボット科学者」によって、研究者や技術者の研究開発だけではなく、知財との接続、事業化との接続を革新していく。そして更に、より多様な業務を担う自動業務システムを「AIロボット科学者」が製作していく
+            </p>
+            <div class="company-section__highlight">
+              株式会社NexaScienceは「人間の創造性を最大限に発揮できる社会」を実現します。
+            </div>
           </div>
-        </div>
-        <div class="about-visual" aria-hidden="true">
-          <div class="visual-orb"></div>
-          <div class="visual-ring ring-1"></div>
-          <div class="visual-ring ring-2"></div>
-          <div class="visual-ring ring-3"></div>
-          <div class="visual-labels">
-            <span class="v-label">AI Agent</span>
-            <span class="v-label">Research</span>
-            <span class="v-label">Science</span>
+          <div class="company-section__images reveal">
+            <img
+              src="https://lh3.googleusercontent.com/sitesv/APaQ0SSjBVU7Xo-z1_nzJfn7us4qtkwfgj4LqszSkaTBa2QgpmDxMB11mklc7H-_BdcOaXUpguuKVm_P51EAOmWwWSC9dLyN0biyA8gKtOP2SBy2VFPoPCSe-5Zq4qN4Fthxjly3gu-QCaSbKwlzW7TvCdSG-Un_C2vtSe0zuBhD8ZFtoGfMNgnhMhpwE0uTMmrYfmILVqAc9cxSXEr4JW_Mcu1-Jtr71_MnGV5WxOs=w1280"
+              alt="NexaScience AIロボット科学者イメージ"
+            />
+            <img
+              src="https://lh3.googleusercontent.com/sitesv/APaQ0SRA214bREdAqLZhnlHc5BAE9YUPZS1BETA4d4LaBLxPGH1iYfscCwmzbXa-6LSDI9T4rlBWLQbaCaYd4tRz7ccJbSntsFezNND3ugW_wTlsk6zBb6lBjFTp3fjSEh2OumHzJ1M7N5QX7c_S2Lhatce-O_tgmr6XyKJMge1hIgkfWB2TA0kn1XqRqeaUrIEJrRz35IM3n_uIo4-SIe5MPWLYfbay902BGUl=w1280"
+              alt="NexaScience 研究開発イメージ"
+            />
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== SERVICE SECTION ===== -->
-  <section class="service section-padding" id="service" aria-label="サービス">
-    <div class="container">
-      <p class="section-label text-center">SERVICE</p>
-      <h2 class="section-heading text-center">私たちのサービス</h2>
-      <div class="service-grid">
-        <div class="service-card">
-          <div class="service-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
-              <path d="M16 24h16M24 16v16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              <circle cx="24" cy="24" r="4" fill="currentColor"/>
-            </svg>
-          </div>
-          <h3 class="service-card-title">AIRAS</h3>
-          <p class="service-card-body">
-            研究自動化AI「AIRAS」。自律的に仮説を立て、実験計画を立案・実行し、
-            結果を解析するAIロボット科学者プラットフォームです。
-          </p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="8" y="8" width="14" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
-              <rect x="26" y="8" width="14" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
-              <rect x="8" y="26" width="14" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
-              <rect x="26" y="26" width="14" height="14" rx="2" stroke="currentColor" stroke-width="2"/>
-            </svg>
-          </div>
-          <h3 class="service-card-title">AIエージェントアダプター</h3>
-          <p class="service-card-body">
-            自律駆動R&DのためのAIエージェントアダプター。既存の研究ワークフローに
-            シームレスに統合し、研究活動を加速します。（GENIAC第3期採択）
-          </p>
-        </div>
-        <div class="service-card">
-          <div class="service-icon" aria-hidden="true">
-            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M24 8L38 16v16L24 40 10 32V16L24 8z" stroke="currentColor" stroke-width="2"/>
-              <path d="M24 8v32M10 16l14 8 14-8" stroke="currentColor" stroke-width="2"/>
-            </svg>
-          </div>
-          <h3 class="service-card-title">特許ビジネスアイデア生成</h3>
-          <p class="service-card-body">
-            AIが特許からビジネスアイデアを自動生成するシステム（PBIG）。
-            PBIGコンペ1位受賞の技術を活用し、知財活用を革新します。
-          </p>
-        </div>
+    <!-- ===== NEWS SECTION ===== -->
+    <section class="section section--gray" id="news">
+      <div class="container">
+        <p class="section__label reveal">Latest</p>
+        <h2 class="section__heading reveal">NEWS</h2>
+
+        <div class="news-grid">
+
+          <!-- 1 -->
+          <article class="news-card reveal">
+            <div class="news-card__no-image" aria-hidden="true">&#128240;</div>
+            <div class="news-card__body">
+              <p class="news-card__date">2026.04.01</p>
+              <h3 class="news-card__title">
+                <a href="/news/20260401_new_board_members">取締役CTO・CRO就任のお知らせ</a>
+              </h3>
+              <p class="news-card__excerpt">4月1日付で、新たな役員体制となりましたのでお知らせいたします。</p>
+            </div>
+          </article>
+
+          <!-- 2 -->
+          <article class="news-card reveal">
+            <img
+              class="news-card__image"
+              src="https://lh3.googleusercontent.com/docsubipk/AP9E6xWnKPIZtM-mh8hXKzHVGCV1wP7dpd7ZqoYZyZds3fmF4l8oZCkKraXCIVc2FHduIuHMTn0Wv1idTmqrH5jp_ExDQeDTLAZdkeJIfLUFX2188SJKhORQ"
+              alt="PBIG コンペ 1位"
+              loading="lazy"
+            />
+            <div class="news-card__body">
+              <p class="news-card__date">2025.08.28</p>
+              <h3 class="news-card__title">東大・科学大発ベンチャーのAIが特許からビジネスアイデア生成 PBIGコンペ1位</h3>
+              <p class="news-card__excerpt">既存特許からビジネスアイデアを生成するAIのコンペティション Product Business Idea Generation from Patents（PBIG）にて、36個の性能指標の内25個が1位</p>
+            </div>
+          </article>
+
+          <!-- 3 -->
+          <article class="news-card reveal">
+            <img
+              class="news-card__image"
+              src="https://i.ytimg.com/vi/Aql1iwdjZqg/maxresdefault.jpg?v=24"
+              alt="GENIAC 第3期"
+              loading="lazy"
+            />
+            <div class="news-card__body">
+              <p class="news-card__date">2025.07.15</p>
+              <h3 class="news-card__title">株式会社NexaScience、「GENIAC」第3期公募において「自律駆動R&amp;DのためのAIエージェントアダプターの研究開発」が採択</h3>
+              <p class="news-card__excerpt">「GENIAC」第3期公募において「自律駆動R&amp;DのためのAIエージェントアダプターの研究開発」が採択されました。</p>
+            </div>
+          </article>
+
+          <!-- 4 -->
+          <article class="news-card reveal">
+            <img
+              class="news-card__image"
+              src="https://lh3.googleusercontent.com/docsubipk/AP9E6xWRv7_4tYztq495rzm-kiA1y7IecRXnRuUbCtKBNqH2wHPYOdaTnLANE9-yvyh7HvgJ34QKW7uuKCAyFKx71LkYDAjugpa4MVZBK3iFM6YYhunokwtwqzgBWQCc3xgzH1IWO6iyGFPGjgv4mcqf9Q-KJxATt2ZFZL622xzia82qyaOaK8HJ47TA7e62-rKd8bWAsCrozD3WDYRMLvvK3rrjraAesjMgx_Uo_ZuLWQKgVIyMGjN1hIbiVVknjqBvqrEeWj9CEuJ3nypT"
+              alt="AIRAS 研究自動化AI"
+              loading="lazy"
+            />
+            <div class="news-card__body">
+              <p class="news-card__date">2025.07.15</p>
+              <h3 class="news-card__title">株式会社NexaScience、研究自動化AI「AIRAS」の開発支援と商用展開を本格始動</h3>
+              <p class="news-card__excerpt">NexaScienceでは、研究自動化AI「AIRAS」の開発支援と商用展開を本格始動し、マルチAIエージェント間の連携を最適化し、研究開発の完全自律化を加速します。</p>
+            </div>
+          </article>
+
+          <!-- 5 -->
+          <article class="news-card reveal">
+            <img
+              class="news-card__image"
+              src="https://lh3.googleusercontent.com/docsubipk/AP9E6xWe6JZFpjuo2Z50oLANx6ZFI_1yaGau09RUgjPHMI2muOKVlkxVRi2nZ9n_s87Te2YinKyBcSFuwtgL-2zXADX02ccbityw2d0bEH499bAr8N3EvPxCsxTEz6nVcq_5f8_TFdU"
+              alt="グローバル・ブレイン XLIMIT"
+              loading="lazy"
+            />
+            <div class="news-card__body">
+              <p class="news-card__date">2025.03.17</p>
+              <h3 class="news-card__title">グローバル・ブレイン XLIMIT 出資決定</h3>
+              <p class="news-card__excerpt">グローバル・ブレインのアクセラレータープログラム『XLIMIT』の一環として、NexaScienceへの出資が決定いたしました。</p>
+            </div>
+          </article>
+
+          <!-- 6 -->
+          <article class="news-card reveal">
+            <img
+              class="news-card__image"
+              src="https://lh3.googleusercontent.com/docsubipk/AP9E6xVjesoije8XaZCQKxcRVwO6m3nxYEJkInBuUpeD1foDQVvTik1C6Mi4iX8rffkfqwHCMhkyTOg6pGlimTNLKcECYRHqC5xQV2WG61PF-apUWTb9KIOLdCrNlWT-AW7MFL2JmFwnSQU6gcGf-KMJwPSmX8lccRXQuAXr99kxIEPZDRqml6hA-bVcNc2hMyOEUc6vF3S2TPJvUiHY0PkUP-boJWjeZwUwvNzG6-ZWoe7VJcSxeT2zZdLTIoM"
+              alt="JST ムーンショットシンポジウム"
+              loading="lazy"
+            />
+            <div class="news-card__body">
+              <p class="news-card__date">2025.03.07</p>
+              <h3 class="news-card__title">JST ムーンショットシンポジウム登壇</h3>
+              <p class="news-card__excerpt">JST ムーンショット型研究開発事業のシンポジウムが日本科学未来館で開催されました。代表取締役の牛久が「人と融和して知の創造・越境をするAIロボット」のPMとして登壇しました。</p>
+            </div>
+          </article>
+
+          <!-- 7 -->
+          <article class="news-card reveal">
+            <img
+              class="news-card__image"
+              src="https://lh3.googleusercontent.com/docsubipk/AP9E6xW-zjNdtFKQBe3KlLtIsadS0kKTM_RVzmHeB5M5ccY64OJreUkhmW2MnqoUrECyyBwJ258nG5ylqa-BylTIO6WftL6F5Ge2Dp3r0gnQhzLSbPzJ-apY2nBdcZFwlca3qJLP4C06UbFXq0w05CHDMJK2tTfLZFveYffVqJpfQtWTVvRxRrxHQ6zmVBZ7WWygaOrKsO_dSMlG5Ngo6_L6_x8Jtfk0LoTBPzQUYG7I6C45bOZKljcJNKd2RzEHO7n40uLHPsoFUKPqsbvKflXV"
+              alt="AIロボット協会 AIRoA"
+              loading="lazy"
+            />
+            <div class="news-card__body">
+              <p class="news-card__date">2025.03.07</p>
+              <h3 class="news-card__title">AIロボット協会（AIRoA）理事就任</h3>
+              <p class="news-card__excerpt">代表取締役の牛久が、一般社団法人AIロボット協会（AIRoA）の活動開始に際し、理事に就任しました。</p>
+            </div>
+          </article>
+
+          <!-- 8 -->
+          <article class="news-card reveal">
+            <div class="news-card__no-image" aria-hidden="true">&#128240;</div>
+            <div class="news-card__body">
+              <p class="news-card__date">2025.01.18</p>
+              <h3 class="news-card__title">BRIDGE媒体掲載記事</h3>
+              <p class="news-card__excerpt">テクノロジーとスタートアップのためのニュースメディア「BRIDGE」にて弊社の取り組みをご紹介いただきました。</p>
+            </div>
+          </article>
+
+          <!-- 9 -->
+          <article class="news-card reveal">
+            <div class="news-card__no-image" aria-hidden="true">&#128240;</div>
+            <div class="news-card__body">
+              <p class="news-card__date">2025.01.17</p>
+              <h3 class="news-card__title">KEPPLE媒体掲載記事</h3>
+              <p class="news-card__excerpt">スタートアップエコシステムを可視化するメディア「KEPPLE」にて弊社のXLIMITにおける活動をご紹介いただきました。</p>
+            </div>
+          </article>
+
+          <!-- 10 -->
+          <article class="news-card reveal">
+            <div class="news-card__no-image" aria-hidden="true">&#127942;</div>
+            <div class="news-card__body">
+              <p class="news-card__date">2025.01.17</p>
+              <h3 class="news-card__title">XLIMIT 3rdバッチ 最優秀賞受賞</h3>
+              <p class="news-card__excerpt">グローバル・ブレイン株式会社主催のアクセラレーションプログラム「XLIMIT」の3rdバッチで最優秀賞を獲得しました</p>
+            </div>
+          </article>
+
+          <!-- 11 -->
+          <article class="news-card reveal">
+            <div class="news-card__no-image" aria-hidden="true">&#128640;</div>
+            <div class="news-card__body">
+              <p class="news-card__date">2024.10</p>
+              <h3 class="news-card__title">XLIMIT 3rdバッチ 採択</h3>
+              <p class="news-card__excerpt">グローバル・ブレイン株式会社主催のアクセラレーションプログラム「XLIMIT」の3rdバッチに採択されました</p>
+            </div>
+          </article>
+
+        </div><!-- /.news-grid -->
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== NEWS SECTION ===== -->
-  <section class="news section-padding" id="news" aria-label="ニュース">
-    <div class="container">
-      <p class="section-label">NEWS</p>
-      <h2 class="section-heading">最新情報</h2>
-      <div class="news-list" role="list">
-
-        <article class="news-item" role="listitem">
-          <time class="news-date" datetime="2026-04-01">
-            <span class="date-year">2026</span>
-            <span class="date-md">04.01</span>
-          </time>
-          <div class="news-body">
-            <span class="news-tag">お知らせ</span>
-            <p class="news-headline">取締役CTO・CRO就任のお知らせ</p>
-          </div>
-        </article>
-
-        <article class="news-item" role="listitem">
-          <time class="news-date" datetime="2025-08-28">
-            <span class="date-year">2025</span>
-            <span class="date-md">08.28</span>
-          </time>
-          <div class="news-body">
-            <span class="news-tag news-tag--award">受賞</span>
-            <p class="news-headline">東大・科学大発ベンチャーのAIが特許からビジネスアイデア生成（PBIGコンペ1位）</p>
-          </div>
-        </article>
-
-        <article class="news-item" role="listitem">
-          <time class="news-date" datetime="2025-07-15">
-            <span class="date-year">2025</span>
-            <span class="date-md">07.15</span>
-          </time>
-          <div class="news-body">
-            <span class="news-tag news-tag--grant">採択</span>
-            <p class="news-headline">GENIAC第3期 「自律駆動R&DのためのAIエージェントアダプター」採択</p>
-          </div>
-        </article>
-
-        <article class="news-item" role="listitem">
-          <time class="news-date" datetime="2025-07-15">
-            <span class="date-year">2025</span>
-            <span class="date-md">07.15</span>
-          </time>
-          <div class="news-body">
-            <span class="news-tag">サービス</span>
-            <p class="news-headline">研究自動化AI「AIRAS」商用展開開始</p>
-          </div>
-        </article>
-
-        <article class="news-item" role="listitem">
-          <time class="news-date" datetime="2025-03-17">
-            <span class="date-year">2025</span>
-            <span class="date-md">03.17</span>
-          </time>
-          <div class="news-body">
-            <span class="news-tag news-tag--invest">投資</span>
-            <p class="news-headline">グローバル・ブレイン XLIMIT 出資決定</p>
-          </div>
-        </article>
-
-        <article class="news-item" role="listitem">
-          <time class="news-date" datetime="2025-03-07">
-            <span class="date-year">2025</span>
-            <span class="date-md">03.07</span>
-          </time>
-          <div class="news-body">
-            <span class="news-tag">登壇</span>
-            <p class="news-headline">JST ムーンショットシンポジウム登壇</p>
-          </div>
-        </article>
-
-        <article class="news-item" role="listitem">
-          <time class="news-date" datetime="2025-03-07">
-            <span class="date-year">2025</span>
-            <span class="date-md">03.07</span>
-          </time>
-          <div class="news-body">
-            <span class="news-tag">就任</span>
-            <p class="news-headline">AIロボット協会（AIRoA）理事就任</p>
-          </div>
-        </article>
-
-        <article class="news-item" role="listitem">
-          <time class="news-date" datetime="2025-01-18">
-            <span class="date-year">2025</span>
-            <span class="date-md">01.18</span>
-          </time>
-          <div class="news-body">
-            <span class="news-tag news-tag--media">メディア</span>
-            <p class="news-headline">BRIDGE媒体掲載記事</p>
-          </div>
-        </article>
-
-        <article class="news-item" role="listitem">
-          <time class="news-date" datetime="2025-01-17">
-            <span class="date-year">2025</span>
-            <span class="date-md">01.17</span>
-          </time>
-          <div class="news-body">
-            <span class="news-tag news-tag--media">メディア</span>
-            <p class="news-headline">KEPPLE媒体掲載記事</p>
-          </div>
-        </article>
-
-        <article class="news-item" role="listitem">
-          <time class="news-date" datetime="2025-01-17">
-            <span class="date-year">2025</span>
-            <span class="date-md">01.17</span>
-          </time>
-          <div class="news-body">
-            <span class="news-tag news-tag--award">受賞</span>
-            <p class="news-headline">XLIMIT 3rdバッチ 最優秀賞受賞</p>
-          </div>
-        </article>
-
-        <article class="news-item" role="listitem">
-          <time class="news-date" datetime="2024-10-01">
-            <span class="date-year">2024</span>
-            <span class="date-md">10</span>
-          </time>
-          <div class="news-body">
-            <span class="news-tag news-tag--grant">採択</span>
-            <p class="news-headline">XLIMIT 3rdバッチ 採択</p>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CONTACT SECTION ===== -->
-  <section class="contact section-padding" id="contact" aria-label="お問い合わせ">
-    <div class="container">
-      <p class="section-label text-center">CONTACT</p>
-      <h2 class="section-heading text-center">お問い合わせ</h2>
-      <p class="contact-lead text-center">
-        ご質問・ご相談・取材・協業のご提案など、お気軽にお問い合わせください。
-      </p>
-      <div class="contact-cta">
-        <a href="mailto:info@nexascience.com" class="btn btn-primary">
-          メールでお問い合わせ
-        </a>
-      </div>
-    </div>
-  </section>
+  </main>
 
   <!-- ===== FOOTER ===== -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <a href="#top" class="footer-logo" aria-label="NexaScience トップへ">
-        <span class="logo-nexa">Nexa</span><span class="logo-science">Science</span>
-      </a>
-      <p class="footer-copy">&copy; 2024 NexaScience Inc. All rights reserved.</p>
+    <div class="container">
+      <p>&copy; 2024 株式会社NexaScience. All rights reserved.</p>
     </div>
   </footer>
 
