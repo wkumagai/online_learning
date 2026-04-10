@@ -202,8 +202,9 @@ a:hover {
 
 .site-nav a:hover,
 .site-nav a.active {
-  background: var(--color-accent-light);
+  background: none;
   color: var(--color-accent);
+  font-weight: 700;
   text-decoration: none;
 }
 
