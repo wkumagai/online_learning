@@ -424,7 +424,6 @@ a:hover {
   gap: 0;
   background: var(--color-bg);
   border: 1px solid var(--color-border);
-  border-top: 3px solid var(--color-accent);
   border-radius: var(--radius);
   overflow: hidden;
   transition: all var(--transition-normal);
@@ -599,7 +598,6 @@ a:hover {
   gap: 36px;
   background: var(--color-bg);
   border: 1px solid var(--color-border);
-  border-left: 4px solid var(--color-accent);
   border-radius: var(--radius);
   padding: 36px;
   box-shadow: var(--shadow-sm);
@@ -985,7 +983,6 @@ a:hover {
     text-align: center;
     padding: 28px 24px;
     border-left: 1px solid var(--color-border);
-    border-top: 4px solid var(--color-accent);
   }
 
   .member-card__photo {
