@@ -526,6 +526,19 @@ a:hover {
   margin-top: 2px;
 }
 
+.news-card__link {
+  display: flex;
+  gap: 0;
+  color: inherit;
+  text-decoration: none;
+  width: 100%;
+}
+
+.news-card__link:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
 /* ===================================================
    ABOUT PAGE
    =================================================== */
@@ -953,6 +966,10 @@ a:hover {
   }
 
   .news-card {
+    flex-direction: column;
+  }
+
+  .news-card__link {
     flex-direction: column;
   }
 
