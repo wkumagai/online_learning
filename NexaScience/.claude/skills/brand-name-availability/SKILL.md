@@ -68,11 +68,22 @@ description: >-
 
 公式に無料のフリーテキスト名称検索APIは無いが、自動化したいなら第三者API＋公式TSDRの2段が使える。
 
-- **方法A: API（推奨・要キー）**
-  1. 第三者API `uspto-trademark`（RapidAPI）で名称をフリーテキスト検索し、ヒットした **serial番号** と status_label(Live/Dead) を取得。
-     - 例: `curl 'https://uspto-trademark.p.rapidapi.com/v1/trademarkSearch/<name>/active' -H 'x-rapidapi-host: uspto-trademark.p.rapidapi.com' -H 'x-rapidapi-key: <KEY>'`
-  2. その serial番号で**公式 TSDR API**を叩き、**International Class** と status を一次情報として確定。
-  3. キーは `secrets/.env` を参照（`RAPIDAPI_KEY` 等）。無ければ方法Bへ。
+- **方法A: API（推奨・設定済み）**
+  - キーは `secrets/.env`（`/Users/kumacmini/Library/CloudStorage/Dropbox/secrets/.env`）に設定済み:
+    - `RAPIDAPI_KEY` … RapidAPIのx-rapidapi-key
+    - `RAPIDAPI_USPTO_HOST` … `uspto-trademark.p.rapidapi.com`
+  - 読み込み: `set -a; source "<上記.envパス>"; set +a`
+  - **名称フリーテキスト検索**（`active`=Liveのみ / `all`=Dead含む。無料Basicは250件/月・上限250件返る）:
+    ```bash
+    curl -s --max-time 30 \
+      --url "https://${RAPIDAPI_USPTO_HOST}/v1/trademarkSearch/<name>/active" \
+      -H "x-rapidapi-host: ${RAPIDAPI_USPTO_HOST}" \
+      -H "x-rapidapi-key: ${RAPIDAPI_KEY}"
+    ```
+  - 返るJSON: `count` と `items[]`。各itemに `keyword` / `serial_number` / **`status_label`(例 "Live/Registered")** / `status_definition` / `filing_date` / `registration_date` / `expiration_date` / `description`(商品・役務) など。
+  - 疎通だけ見るなら `/v1/databaseStatus`。バッチは `/v1/batchTrademarkSearch`（複数候補を一度に）。
+  - **区分(International Class)を厳密に確定したい場合のみ**、得た `serial_number` で公式TSDR等に当たる（任意。事前スクリーニングは上記のstatus_label＋descriptionで十分なことが多い）。
+  - キー切れ・未設定・429(レート超過)なら方法Bへ。
 - **方法B: ブラウザ（フォールバック）**
   1. https://tmsearch.uspto.gov/ でキーワード検索。
   2. `get_page_text`/`read_page` で結果を**テキスト取得**し、各件の **Live / Dead** と **International Class（009 / 042 / 035 等）** を確認。
