@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AIXS — NexaScience</title>
+  <meta name="description" content="NexaScienceのAIXSサービスについて。" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <div class="container">
+      <a class="site-header__logo" href="index.html" aria-label="NexaScience ホーム">
+        <img
+          src="images/logo.png"
+          alt="NexaScience"
+        />
+      </a>
+      <button class="nav-toggle" aria-label="メニューを開く" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav aria-label="メインナビゲーション">
+        <ul class="site-nav">
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="aixs.html">Try AIXS</a></li>
+          <li><a href="news.html">NEWS</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="aixs-hero reveal">
+      <div class="container">
+        <h1 class="aixs-hero__title">AIXS</h1>
+        <p class="aixs-hero__subtitle">AI eXecution System</p>
+        <p class="aixs-hero__desc">AIXSは、多様なインターフェースからハードウェアやデータ基盤へのアクセスを可能にする、AIエージェントのための統合実行環境です。</p>
+      </div>
+    </section>
+
+    <!-- ===== FEATURES ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="aixs-features-list">
+
+          <div class="aixs-feature-item reveal">
+            <span class="aixs-feature-item__num">01</span>
+            <h3 class="aixs-feature-item__title">多様な入力元に対応</h3>
+            <p class="aixs-feature-item__desc">AIチャットアプリ、AIエージェント、ブラウザ、各種研究開発ツールなど、ユーザーが普段使っているインターフェースからそのままAIXSにアクセスできます。プラグイン、MCP連携、ブラウザアドオン、APIなど、接続方式も柔軟に対応します。</p>
+          </div>
+
+          <div class="aixs-feature-item reveal">
+            <span class="aixs-feature-item__num">02</span>
+            <h3 class="aixs-feature-item__title">コード解析から実行まで自動で完結</h3>
+            <p class="aixs-feature-item__desc">リポジトリのリンクを渡すだけで、AIXSがコードを解析。エントリーポイントの特定、実験設定の抽出、環境変数の特定、実行に必要な実装の追加までを自動で行い、適切な計算資源上でコードを実行します。一般的なコード実行からAIの学習・推論、シミュレーション、ロボット制御まで幅広く対応します。</p>
+          </div>
+
+          <div class="aixs-feature-item reveal">
+            <span class="aixs-feature-item__num">03</span>
+            <h3 class="aixs-feature-item__title">管理基盤で運用を一元化</h3>
+            <p class="aixs-feature-item__desc">実行監視・可視化、ログ保存、コスト計測・管理、環境設定、ジョブ管理、セキュリティなどを備えた管理基盤（WebUI）を提供。ソースコード・設定・実行結果はリポジトリに蓄積され、AIがエンドツーエンドで実行を完結できる環境を実現します。</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="aixs-cta reveal">
+      <div class="container">
+        <p class="aixs-cta__text">ご興味のある方はお問い合わせください</p>
+        <a href="contact.html" class="btn btn--white">CONTACT</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2024 株式会社NexaScience. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
