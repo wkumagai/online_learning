@@ -106,6 +106,12 @@ description: >-
       -H "x-rapidapi-key: ${RAPIDAPI_KEY}"
     ```
   - 返るJSON: `count` と `items[]`。各itemに `keyword` / `serial_number` / **`status_label`(例 "Live/Registered")** / `status_definition` / `filing_date` / `registration_date` / `expiration_date` / `description`(商品・役務) など。
+  - **重要: `count` は部分一致（例: "aron"で"ARONGIN"等）を含む。判定は `count` で見ず、`keyword` が候補名と完全一致(case-insensitive)で `status_label` に "Live" を含む件を数える**:
+    ```python
+    ex=[i for i in items if (i.get('keyword') or '').strip().lower()==name.lower()
+        and 'live' in (i.get('status_label') or '').lower()]
+    ```
+  - 完全一致Liveがあっても、`description` から**関係区分(9/42/35=ソフト/SaaS/広告)か無関係区分(化学・バルブ等)かを見る**。無関係区分のみなら△、関係区分にあれば✕寄り。
   - 疎通だけ見るなら `/v1/databaseStatus`。バッチは `/v1/batchTrademarkSearch`（複数候補を一度に）。
   - **区分(International Class)を厳密に確定したい場合のみ**、得た `serial_number` で公式TSDR等に当たる（任意。事前スクリーニングは上記のstatus_label＋descriptionで十分なことが多い）。
   - キー切れ・未設定・429(レート超過)なら方法Bへ。
@@ -118,8 +124,15 @@ description: >-
 ## 3. ドメイン — .ai / .io / .com
 
 - まず機械的に空きを判定（速い）:
-  - RDAP: `https://rdap.org/domain/<name>.io`（`.com` も可）。**404=空き / 200=登録済み**。
-  - `.ai` は RDAP/WHOIS が不安定なので **お名前.com で確認**するのが確実。
+  - RDAP は **必ず `-L`（リダイレクト追従）を付ける**。rdap.org は登録局へ302リダイレクトするため、付けないと判定不能(302/000)になる:
+    ```bash
+    curl -s -L -o /dev/null -w "%{http_code}" --max-time 20 "https://rdap.org/domain/<name>.com"
+    # 200=登録済み / 404=空き。.com と .io はこれでOK。
+    ```
+  - `.ai` は RDAP が不安定なので **whois が確実**: `whois <name>.ai` で「No match/NOT FOUND」=空き、「Domain Name/Name Server」=登録済み。
+  - 短時間に多数叩くと **429（レート制限）** が出る。出たら間隔をあけて再試行（または対象を生き残りに絞る）。
+  - 価格・最終確認は **お名前.com** で（プレミアム価格に注意）。
+  - 実装メモ: シェルは **zsh**。`for n in $list` は単語分割されないので**配列** `list=(a b c)` を使う。
 - 価格と最終確認: お名前.com トップ https://www.onamae.com/ の検索ボックスに候補名を入れて検索 → `.ai/.io/.com` の ○×と **価格** を見る。
 - 注意: 短い `.ai/.io` は**空きでも「プレミアム」で高額**なことがある。必ず価格を記録する。
 - 判定: 取りたいTLDが普通価格で空き → ○ / プレミアム高額 → △ / 登録済み → ✕
